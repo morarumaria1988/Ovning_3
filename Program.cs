@@ -39,6 +39,22 @@
             {
                 Console.WriteLine($"Error: {ex.Message}");
             }
+
+            List<UserErrors> userErrors = new List<UserErrors>();
+            NumericInputError numericInputError = new NumericInputError();
+            TextInputError textInputError = new TextInputError();
+            ThinkingError thinkingError = new ThinkingError();
+            SelfishError selfishError = new SelfishError();
+            LyingError lyingError = new LyingError();
+            userErrors.Add(numericInputError);
+            userErrors.Add(textInputError);
+            userErrors.Add(thinkingError);
+            userErrors.Add(lyingError);
+            userErrors.Add(selfishError);
+            foreach (var error in userErrors)
+            {
+                Console.WriteLine(error.UEMessage());
+            }
         }
     }
 }
