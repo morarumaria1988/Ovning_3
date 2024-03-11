@@ -55,8 +55,12 @@
             {
                 Console.WriteLine(error.UEMessage());
             }
-        List<Animal> animals = new List<Animal>();
-
+            List<Animal> animals = new List<Animal>();
+            Animal horse = new Horse("Stela", 2, 80, 3);
+            Animal dog = new Dog("Jolie", 3, 8, true);
+            Animal wolf = new Wolf();
+            Animal pelican = new Pelican { Name = "Peli", Age = 5, Weight = 3, Wingspan = 150};
+            Console.WriteLine(horse.Stats());
         }
     }
 }

@@ -20,6 +20,7 @@ namespace Ovning_3
         protected Animal()
         {
         }
+
         protected Animal(string name, int age, double weight) : this()
         {
             this.Name = name;
@@ -28,7 +29,7 @@ namespace Ovning_3
         }
 
         public abstract void DoSound();
-        public virtual string Stats() { return $"Animal {Name} is {Age} years old and weighs {Weight} kg"; }
+        public virtual string Stats() { return $"Animal {Name} is {Age} years old and weighs {Weight} kg."; }
     }
 
     class Horse : Animal
@@ -41,17 +42,37 @@ namespace Ovning_3
             set { stallNumber = value; }
         }
 
+        public Horse(string name, int age, double weight, int stallNumber)
+        {
+            Name = name;
+            Age = age;
+            Weight = weight;
+            StallNumber = stallNumber;
+        }
+
+        public Horse()
+        {
+        }
+
         public override void DoSound()
         {
             Console.WriteLine("Ihhhihihihihiii!");
         }
 
-        public override string Stats() { return $"Horse {Name} is {Age} years old, weighs {Weight} kg and sleeps in stall {StallNumber}"; }
+        public override string Stats() { return $"Horse {Name} is {Age} years old, weighs {Weight} kg and sleeps in stall number {StallNumber}."; }
     }
 
     class Dog : Animal
     {
         private bool bites;
+
+        public Dog(string name, int age, double weight, bool bites)
+        {
+            Name = name;
+            Age = age;
+            Weight = weight;
+            Bites = bites;
+        }
 
         public bool Bites
         {
@@ -136,7 +157,7 @@ namespace Ovning_3
         public string DeltaOfResidence
         { get; set; } = "Danube";
 
-        public override string Stats() { return $"Pelican {Name} is {Age} years old, weighs {Weight} kg and it resides in {DeltaOfResidence} Delta."; }
+        public override string Stats() { return $"Pelican {Name} is {Age} years old, weighs {Weight} kg, has a wingspan of {Wingspan} cm and it resides in {DeltaOfResidence} Delta."; }
     }
 
     class Flamingo : Bird
@@ -149,7 +170,7 @@ namespace Ovning_3
             set { legLength = value; }
         }
 
-        public override string Stats() { return $"Flamingo {Name} is {Age} years old, weighs {Weight} kg and its legs are {LegLength} cm long."; }
+        public override string Stats() { return $"Flamingo {Name} is {Age} years old, weighs {Weight} kg, has a wingspan of {Wingspan} cm and its legs are {LegLength} cm long."; }
     }
 
     class Swan : Bird
@@ -162,7 +183,7 @@ namespace Ovning_3
             set { neckLength = value; }
         }
 
-        public override string Stats() { return $"Swan {Name} is {Age} years old, weighs {Weight} kg and its neck is {NeckLength} cm long."; }
+        public override string Stats() { return $"Swan {Name} is {Age} years old, weighs {Weight} kg, has a wingspan of {Wingspan} cm and its neck is {NeckLength} cm long."; }
     }
 
     interface IPerson
