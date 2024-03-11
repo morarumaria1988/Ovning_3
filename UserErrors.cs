@@ -8,10 +8,10 @@ namespace Ovning_3
 {
     internal abstract class UserErrors
     {
-       public abstract string UEMessage();
+        public abstract string UEMessage();
     }
 
-   class NumericInputError : UserErrors
+    class NumericInputError : UserErrors
     {
         public override string UEMessage()
         {
