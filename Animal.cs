@@ -28,7 +28,7 @@ namespace Ovning_3
             this.weight = weight;
         }
 
-        public abstract void DoSound();
+        public abstract string DoSound();
         public virtual string Stats() { return $"Animal {Name} is {Age} years old and weighs {Weight} kg."; }
     }
 
@@ -54,9 +54,9 @@ namespace Ovning_3
         {
         }
 
-        public override void DoSound()
+        public override string DoSound()
         {
-            Console.WriteLine("Ihhhihihihihiii!");
+            return "Ihhhihihihihiii!";
         }
 
         public override string Stats() { return $"Horse {Name} is {Age} years old, weighs {Weight} kg and sleeps in stall number {StallNumber}."; }
@@ -80,9 +80,9 @@ namespace Ovning_3
             set { bites = value; }
         }
 
-        public override void DoSound()
+        public override string DoSound()
         {
-            Console.WriteLine("Ham, ham!");
+            return "Ham, ham!";
         }
 
         public override string Stats() { return $"Dog {Name} is {Age} years old, weighs {Weight} kg and it is {Bites} that it bites."; }
@@ -98,9 +98,9 @@ namespace Ovning_3
             set { nrOfSpikes = value; }
         }
 
-        public override void DoSound()
+        public override string DoSound()
         {
-            Console.WriteLine("Sniff, sniff!");
+            return "Sniff, sniff!";
         }
         public override string Stats() { return $"Hedgehog {Name} is {Age} years old, weighs {Weight} kg and has {NrOfSpikes} spikes."; }
     }
@@ -115,9 +115,9 @@ namespace Ovning_3
             set { isPoisonous = value; }
         }
 
-        public override void DoSound()
+        public override string DoSound()
         {
-            Console.WriteLine("...");
+            return "...";
         }
         public override string Stats() { return $"Worm {Name} is {Age} days old, weighs {Weight} grams and it is {IsPoisonous} that is poisonous."; }
     }
@@ -132,9 +132,9 @@ namespace Ovning_3
             set { wingspan = value; }
         }
 
-        public override void DoSound()
+        public override string DoSound()
         {
-            Console.WriteLine("Piu, piu!");
+            return "Piu, piu!";
         }
 
         public override string Stats() { return $"Bird {Name} is {Age} years old, weighs {Weight} kg and has a wingspan of {Wingspan} cm."; }
@@ -144,9 +144,9 @@ namespace Ovning_3
     {
         public bool HasSheepFur { get; set; } = true;
 
-        public override void DoSound()
+        public override string DoSound()
         {
-            Console.WriteLine("Auuuuu!");
+            return "Auuuuu!";
         }
 
         public override string Stats() { return $"Wolf {Name} is {Age} years old, weighs {Weight} kg and it is  {HasSheepFur} that it has a sheep fur."; }

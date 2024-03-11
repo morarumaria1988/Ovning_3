@@ -1,4 +1,6 @@
-﻿namespace Ovning_3
+﻿using System.Diagnostics.Metrics;
+
+namespace Ovning_3
 {
     internal class Program
     {
@@ -59,8 +61,22 @@
             Animal horse = new Horse("Stela", 2, 80, 3);
             Animal dog = new Dog("Jolie", 3, 8, true);
             Animal wolf = new Wolf();
+            wolf.Name = "Lupu";
+            wolf.Age = 10;
+            wolf.Weight = 7;
             Animal pelican = new Pelican { Name = "Peli", Age = 5, Weight = 3, Wingspan = 150};
-            Console.WriteLine(horse.Stats());
+            animals.Add(horse);
+            animals.Add(dog);
+            animals.Add(wolf);
+            animals.Add(pelican);
+            Console.WriteLine("We have these animals: ");
+            foreach (var animal in animals)
+            {
+                Console.WriteLine(animal.GetType().Name + " that sounds like this: " + animal.DoSound());
+            }
+            // Console.WriteLine(horse.Stats());
+            //7. Gör en check i for-loopen ifall ett djur även är av typen IPerson, om den är det
+            //type - casta till IPerson och anropa dess Talk() metod.
         }
     }
 }
