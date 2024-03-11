@@ -3,27 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Ovning_3
 {
     internal abstract class Animal
     {
-        private string name;
         private int age;
-        private int weight;
+        private double weight;
+        private string name;
+
+        public string Name { get => name; set => name = value; }
+        public int Age { get => age; set => age = value; }
+        public double Weight { get => weight; set => weight = value; }
 
         protected Animal()
         {
         }
-
-        public string Name
+        protected Animal(string name, int age, double weight) : this()
         {
-            get { return name; }
-            set { name = value; }
+            this.Name = name;
+            this.age = age;
+            this.weight = weight;
         }
-        public int Age { get => age; set => age = value; }
-        public int Weight { get => weight; set => weight = value; }
+
         public abstract void DoSound();
+        public virtual string Stats() { return $"Animal {Name} is {Age} years old and weighs {Weight} kg"; }
     }
 
     class Horse : Animal
@@ -40,13 +45,15 @@ namespace Ovning_3
         {
             Console.WriteLine("Ihhhihihihihiii!");
         }
+
+        public override string Stats() { return $"Horse {Name} is {Age} years old, weighs {Weight} kg and sleeps in stall {StallNumber}"; }
     }
 
     class Dog : Animal
     {
-        private Boolean bites;
+        private bool bites;
 
-        public Boolean Bites
+        public bool Bites
         {
             get { return bites; }
             set { bites = value; }
@@ -56,6 +63,8 @@ namespace Ovning_3
         {
             Console.WriteLine("Ham, ham!");
         }
+
+        public override string Stats() { return $"Dog {Name} is {Age} years old, weighs {Weight} kg and it is {Bites} that it bites."; }
     }
 
     class Hedgehog : Animal
@@ -72,63 +81,62 @@ namespace Ovning_3
         {
             Console.WriteLine("Sniff, sniff!");
         }
+        public override string Stats() { return $"Hedgehog {Name} is {Age} years old, weighs {Weight} kg and has {NrOfSpikes} spikes."; }
     }
 
     class Worm : Animal
     {
-        private int nrOfDays;
+        private bool isPoisonous;
 
-        public int NrOfDays
+        public bool IsPoisonous
         {
-            get { return nrOfDays; }
-            set { nrOfDays = value; }
+            get { return isPoisonous; }
+            set { isPoisonous = value; }
         }
 
         public override void DoSound()
         {
             Console.WriteLine("...");
         }
+        public override string Stats() { return $"Worm {Name} is {Age} days old, weighs {Weight} grams and it is {IsPoisonous} that is poisonous."; }
     }
 
     class Bird : Animal
     {
-        private double WingSpan;
+        private double wingspan;
 
-        public double wingSpan
+        public double Wingspan
         {
-            get { return WingSpan; }
-            set { WingSpan = value; }
+            get { return wingspan; }
+            set { wingspan = value; }
         }
 
         public override void DoSound()
         {
             Console.WriteLine("Piu, piu!");
         }
+
+        public override string Stats() { return $"Bird {Name} is {Age} years old, weighs {Weight} kg and has a wingspan of {Wingspan} cm."; }
     }
 
     class Wolf : Animal
     {
-        private string color;
-
-        public string Color
-        {
-            get { return color; }
-            set { color = value; }
-        }
+        public bool HasSheepFur { get; set; } = true;
 
         public override void DoSound()
         {
             Console.WriteLine("Auuuuu!");
         }
+
+        public override string Stats() { return $"Wolf {Name} is {Age} years old, weighs {Weight} kg and it is  {HasSheepFur} that it has a sheep fur."; }
     }
 
     class Pelican : Bird
     {
-        private string deltaOfResidence;
-
         public string DeltaOfResidence
         { get; set; } = "Danube";
 
+        public override string Stats() { return $"Pelican {Name} is {Age} years old, weighs {Weight} kg and it resides in {DeltaOfResidence} Delta."; }
     }
 
     class Flamingo : Bird
@@ -141,6 +149,7 @@ namespace Ovning_3
             set { legLength = value; }
         }
 
+        public override string Stats() { return $"Flamingo {Name} is {Age} years old, weighs {Weight} kg and its legs are {LegLength} cm long."; }
     }
 
     class Swan : Bird
@@ -152,6 +161,8 @@ namespace Ovning_3
             get { return neckLength; }
             set { neckLength = value; }
         }
+
+        public override string Stats() { return $"Swan {Name} is {Age} years old, weighs {Weight} kg and its neck is {NeckLength} cm long."; }
     }
 
     interface IPerson
