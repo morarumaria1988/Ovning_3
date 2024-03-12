@@ -86,6 +86,8 @@ namespace Ovning_3
         }
 
         public override string Stats() { return $"Dog {Name} is {Age} years old, weighs {Weight} kg and it is {Bites} that it bites."; }
+
+        public string Drink() { return $"Dog {Name} is drinking water."; }
     }
 
     class Hedgehog : Animal
@@ -149,7 +151,7 @@ namespace Ovning_3
             return "Auuuuu!";
         }
 
-        public override string Stats() { return $"Wolf {Name} is {Age} years old, weighs {Weight} kg and it is  {HasSheepFur} that it has a sheep fur."; }
+        public override string Stats() { return $"Wolf {Name} is {Age} years old, weighs {Weight} kg and it is {HasSheepFur} that it has a sheep fur."; }
     }
 
     class Pelican : Bird
